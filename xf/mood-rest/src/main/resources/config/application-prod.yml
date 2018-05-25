@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:mysql://rm-2ze0z93hgk53405zn.mysql.rds.aliyuncs.com:3306/aldbim_v3?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+    username: aladdin
+    password: 83ieAp9U+!
+
+  redis:
+    host: r-2zec173901023894.redis.rds.aliyuncs.com
+    port: 6379
+    password: fetIBgd048iW8cii
+
+server:
+  port: 8080
+
+front.server: http://www.aldbim.com/
+
+logging:
+  config: classpath:logback-spring.xml
+  level: info
+
+render:
+    vrServer: http://vr.aldbim.com
+art:
+    server: http://www.artbim.com

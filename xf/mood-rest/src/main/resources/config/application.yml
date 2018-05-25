@@ -1,0 +1,54 @@
+spring:
+    application:
+      name: Aladdin BIM cloud platform
+    profiles:
+      active: dev
+    datasource:
+        name: test
+        # 使用druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+
+## Mybatis 配置
+mybatis:
+    mapperLocations: classpath:mapper/*.xml
+    typeAliasesPackage: com.mood.entity
+    configuration:
+        map-underscore-to-camel-case: true # 开启驼峰命名规则
+        use-generated-keys: true  # 使用jdbc的getGeneratedKeys 获取数据库自增主键
+        use-column-label: true # 使用列名替换别名 默认为true
+
+# 通用mapper
+mapper:
+    #mappers 多个接口时逗号隔开
+    not-empty: false
+    identity: MYSQL
+
+#pagehelper分页插件配置
+pagehelper:
+    helperDialect: mysql
+    pagehelper: reasonable=true
+    supportMethodsArguments: true
+    params: count=countSql
+
+#手机验证码前缀
+phonecodePre: rest.v1.mobile.phonecode.
+#手机获取验证码次数前缀
+phonenumPre: rest.v1.mobile.daynums.
+#手机验证码获取时间前缀
+phonecodeTime: rest.v1.mobile.createtime.
+#手机验证码有效时间20分钟
+phonecodeExpSeconds: 1200
